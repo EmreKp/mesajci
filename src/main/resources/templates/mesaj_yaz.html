@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mesaj Yaz</title>
+</head>
+<body>
+<form th:action="@{/gonder}" th:object="${mesaj}" method="post">
+    <p><label>Kullanıcı:</label> <input type="text" th:field="*{user}" /></p>
+    <p><label>Başlık:</label> <input type="text" th:field="*{title}" /></p>
+    <p><label>Mesaj: </label> <textarea th:field="*{message}"></textarea> </p>
+    <p><input type="submit" /> </p>
+</form>
+</body>
+</html>
