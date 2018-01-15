@@ -68,6 +68,8 @@ public class BoardController {
     public String commentView(@PathVariable("id") Long msgId, Model model) {
         Comment comment = new Comment();
         comment.setMessageId(msgId);
+        Message asilMsg = messageRepository.findById(msgId);
+        model.addAttribute("asilMesaj", asilMsg.getTitle());
         model.addAttribute("yorum", comment);
         return "yanit_yaz";
     }
