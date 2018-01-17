@@ -20,13 +20,9 @@ public class SendService {
         this.commentRepository = commentRepository;
     }
 
-    public void postMessage(String user, String title, String text, Date postDate, String deletePassword) {
-        Message message = new Message();
-        message.setUser(user);
-        message.setDate(postDate);
-        message.setTitle(title);
-        message.setMessage(text);
-        message.setDeletePass(deletePassword);
+    public void postMessage(Message message) {
+        message.setDate(new Date());
+        //thread id ek parametre gerektirdiği için ayarlanması controllerda yapılıyor
         messageRepository.save(message);
     }
 

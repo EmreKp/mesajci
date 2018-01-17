@@ -10,9 +10,10 @@ import java.util.Date;
 @Entity
 public class Message {
     private @Id @GeneratedValue Long id;
-    private String user,title,message;
+    private String user,title,text;
     private Date date;
     private String deletePass;
+    private Long threadId;
 
     public Long getId() {
         return id;
@@ -38,12 +39,12 @@ public class Message {
         this.title = title;
     }
 
-    public String getMessage() {
-        return message;
+    public String getText() {
+        return text;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setText(String message) {
+        this.text = message;
     }
 
     public Date getDate() {
@@ -60,5 +61,13 @@ public class Message {
 
     public void setDeletePass(String deletePass) {
         this.deletePass = deletePass;
+    }
+
+    public Long getThreadId() {
+        return threadId;
+    }
+
+    public void setThreadId(Long threadId) {
+        this.threadId = threadId;
     }
 }
