@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="tr" xmlns:th="http://thymeleaf.org/">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <title>Yanıt Yaz</title>
 </head>
-<body>
+<body class="text-center">
 <form th:action="@{/comment}" th:object="${yorum}" method="post">
     <p><label>Kullanıcı:</label> <input type="text" th:field="*{user}" /></p>
-    <p><label>Göndereceniz mesaj ID: <input type="text" readonly="readonly" th:field="*{messageId}" /> </label></p>
+    <p><label>Yanıtlanacak mesaj:</label> <span th:text="${asilMesaj}"></span></p>
+    <input type="hidden" th:field="*{messageId}" />
     <p><label>Mesaj: </label> <textarea th:field="*{message}"></textarea> </p>
     <p><input type="submit" /> </p>
 </form>
